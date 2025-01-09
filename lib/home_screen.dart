@@ -2,6 +2,14 @@ import 'package:checking/core/contants/app_assets.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
+  List<String> images = [
+    AppAssets.profile,
+    AppAssets.profile1,
+    AppAssets.profile3,
+    // "https://letsenhance.io/static/8f5e523ee6b2479e26ecc91b9c25261e/1015f/MainAfter.jpg",
+    // "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_za-XgqiSjHKXHhafCQTFOOhNEKXrfE0e7Q&s",
+    // "https://cdn.pixabay.com/photo/2015/04/23/22/00/new-year-background-736885_1280.jpg",
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -107,6 +115,87 @@ class HomeScreen extends StatelessWidget {
         // mainAxisAlignment: MainAxisAlignment.center,
         // crossAxisAlignment: CrossAxisAlignment.center,
         children: [
+          SizedBox(
+            height: 500,
+            child: GridView.builder(
+                scrollDirection: Axis.horizontal,
+                shrinkWrap: true,
+                itemCount: 100,
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 5),
+                itemBuilder: (context, index) {
+                  return Card(
+                    borderOnForeground: false,
+                    elevation: 3.0,
+                    child: Center(child: Text("Awais khan")),
+                  );
+                }),
+          ),
+          Container(
+            child: GridView.builder(
+                shrinkWrap: true,
+                itemCount: images.length,
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                ),
+                itemBuilder: (context, index) {
+                  return Container(
+                    height: 100,
+                    width: 100,
+                    margin: EdgeInsets.all(10),
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        image: DecorationImage(
+                            image: AssetImage(images[index]),
+                            fit: BoxFit.cover)),
+                  );
+                }),
+          ),
+
+          SizedBox(
+            height: 100,
+            child: ListView.builder(
+                shrinkWrap: true,
+                itemCount: 6000,
+                scrollDirection: Axis.horizontal,
+                itemBuilder: (context, index) {
+                  return Container(
+                    margin: EdgeInsets.all(10),
+                    height: 200,
+                    width: 150,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: Colors.grey,
+                    ),
+                    child: Center(child: Text("Item $index")),
+                  );
+                }),
+          ),
+          // SizedBox(
+          //   height: 300,
+          //   child: ListView.builder(
+          //       scrollDirection: Axis.horizontal,
+          //       shrinkWrap: true,
+          //       itemCount: 10,
+          //       // gridDelegate:
+          //       //     SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 4),
+          //       itemBuilder: (context, index) {
+          //         return _container();
+          //       }),
+          // ),
+
+          Row(
+            children: [_container(), _container()],
+          ),
+          Row(
+            children: [_container(), _container()],
+          ),
+          Row(
+            children: [_container(), _container()],
+          ),
+          Row(
+            children: [_container(), _container()],
+          ),
           Row(
             children: [_container(), _container()],
           ),
